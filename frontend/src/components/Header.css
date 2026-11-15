@@ -1,0 +1,115 @@
+.header {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+    padding: 30px 32px;
+    border: 1px solid rgba(216, 224, 234, 0.85);
+    border-radius: var(--radius-large);
+    background:
+        linear-gradient(120deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(247, 249, 255, 0.94));
+    box-shadow: var(--shadow-small);
+}
+
+.header::after {
+    position: absolute;
+    z-index: -1;
+    top: -90px;
+    right: -70px;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background-color: rgba(49, 92, 253, 0.1);
+    content: "";
+}
+
+.header__mark {
+    display: grid;
+    flex: 0 0 58px;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border-radius: 18px;
+    background: linear-gradient(135deg,
+            var(--color-primary),
+            var(--color-primary-dark));
+    box-shadow: 0 12px 24px rgba(49, 92, 253, 0.24);
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.header__content {
+    position: relative;
+    max-width: 720px;
+}
+
+.header__eyebrow {
+    margin-bottom: 7px;
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.header__title {
+    margin-bottom: 8px;
+    color: var(--color-text);
+    font-size: clamp(30px, 4vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+.header__description {
+    max-width: 630px;
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+    .header {
+        gap: 16px;
+        padding: 24px;
+        border-radius: var(--radius-medium);
+    }
+
+    .header::after {
+        top: -100px;
+        right: -100px;
+        width: 210px;
+        height: 210px;
+    }
+
+    .header__mark {
+        flex-basis: 50px;
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 23px;
+    }
+
+    .header__description {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px 20px;
+    }
+
+    .header__title {
+        font-size: 30px;
+    }
+}
