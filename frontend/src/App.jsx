@@ -6,6 +6,7 @@ import TransactionList from "./components/TransactionList";
 import "./App.css";
 
 
+const transactionsUrl = `${import.meta.env.VITE_API_URL ?? ""}/api/v1/transactions`;
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         async function loadTransactions () {
             try {
                 
-                const response = await fetch('/api/v1/transactions');
+                const response = await fetch(transactionsUrl);
 
                 if (!response.ok) {
                     throw new Error(`Could not load transactions. HTTP ${response.status}`);
@@ -55,7 +56,7 @@ function App() {
 
         try {
             
-            const response = await fetch('/api/v1/transactions', {
+            const response = await fetch(transactionsUrl, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(transactionData)
@@ -92,7 +93,7 @@ function App() {
 
         try {
             
-            const response = await fetch(`/api/v1/transactions/${id}`, {
+            const response = await fetch(`${transactionsUrl}/${id}`, {
                 method: "DELETE",
             });
 
